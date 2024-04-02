@@ -32,3 +32,5 @@ jobs:
       - name: Push image to container register
         run: |
           docker push killercf/nlw.passin:${{ steps.generate_sha.outputs.sha }}
+          docker tag killercf/nlw.passin:${{ steps.generate_sha.outputs.sha }} killercf/nlw.passin:latest
+          docker push killercf/nlw.passin:latest
