@@ -2,7 +2,7 @@ replicaCount: 5
 image:
   repository: killercf/nlw.passin
   pullPolicy: Always
-  tag: d38545f
+  tag: 7bec20c
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
