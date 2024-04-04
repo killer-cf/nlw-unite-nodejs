@@ -34,3 +34,13 @@ jobs:
           docker push killercf/nlw.passin:${{ steps.generate_sha.outputs.sha }}
           docker tag killercf/nlw.passin:${{ steps.generate_sha.outputs.sha }} killercf/nlw.passin:latest
           docker push killercf/nlw.passin:latest
+
+      - name: Update image tag
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          branch: main
+          valueFile: 'deploy/values.yaml'
+          propertyPath: 'image.tag'
+          value: ${{ steps.generate_sha.outputs.sha }}
+          commitChange: true
+          message: 'Update image tag'
